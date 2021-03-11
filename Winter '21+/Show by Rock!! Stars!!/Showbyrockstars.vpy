@@ -33,7 +33,7 @@ descale = lvf.scale.descale(clip=src, upscaler=None, height=height, kernel=lvf.k
 descale = depth(descale, 16)
 
 # AA
-denoise = mvf.BM3D(descale, sigma=3.0)
+denoise = mvf.BM3D(descale, sigma=1.9)
 aa = taa.TAAmbk(denoise, aatype='Nnedi3')
 
 #aa = fvf.AutoDeblock(aa)
@@ -44,14 +44,14 @@ upscale = join([upscale, plane(src, 1), plane(src, 2)])
 upscale = depth(upscale, 16)
 
 # Deband
-deb = core.f3kdb.Deband(upscale, range=15, y=60, grainy=55, grainc=55, output_depth=16, keep_tv_range=True)
+deb = core.f3kdb.Deband(upscale, range=15, y=40, grainy=0, grainc=0, output_depth=16, keep_tv_range=True)
 #deb = fag3kdb.Fag3kdb(upscale, radiusy=12, radiusc=8, grainy=55, grainc=55, mask_thr=2, mask_radius=3, keep_tv_range=True)
 
 # Graining 
-grain = kgf.adaptive_grain(deb,0.30)
+grain = kgf.adaptive_grain(deb,0.25)
 
 # Dithering back to 10bit
-final = fvf.Depth(grain, 10)
+final = depth(grain, 10)
 
 # Output
 final.set_output()
