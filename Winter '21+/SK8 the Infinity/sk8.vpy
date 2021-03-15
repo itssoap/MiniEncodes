@@ -41,7 +41,7 @@ upscale = nnedi3_rpow2(aa).resize.Spline36(src.width, src.height)
 upscale = join([upscale, plane(src, 1), plane(src, 2)])
 upscale = depth(upscale, 16)
 # Deband
-deb = core.f3kdb.Deband(upscale, range=18, y=65, grainy=40, grainc=40, output_depth=16, keep_tv_range=True)
+deb = core.f3kdb.Deband(upscale, range=18, y=65, grainy=0, grainc=0, output_depth=16, keep_tv_range=True)
 
 # Graining 
 grain = kgf.adaptive_grain(deb,0.30, luma_scaling=8)
