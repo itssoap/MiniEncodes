@@ -44,7 +44,7 @@ upscale = join([upscale, plane(src, 1), plane(src, 2)])
 upscale = depth(upscale, 16)
 
 # Deband
-deb = core.f3kdb.Deband(upscale, range=15, y=56, grainy=40, grainc=0, output_depth=16, keep_tv_range=True)
+deb = core.f3kdb.Deband(upscale, range=15, y=56, grainy=0, grainc=0, output_depth=16, keep_tv_range=True)
 
 # Graining 
 grain = kgf.adaptive_grain(deb, 0.3)
