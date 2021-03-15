@@ -32,6 +32,7 @@ descale = lvf.scale.descale(clip=src, upscaler=None, height=height, kernel=lvf.k
 descale = depth(descale, 16)
 
 denoise = mvf.BM3D(descale, sigma=2.3)
+
 # AA
 aa = taa.TAAmbk(denoise, aatype='Nnedi3')
 #aa.set_output()
@@ -40,9 +41,10 @@ aa = taa.TAAmbk(denoise, aatype='Nnedi3')
 upscale = nnedi3_rpow2(aa).resize.Spline36(src.width, src.height)
 upscale = join([upscale, plane(src, 1), plane(src, 2)])
 upscale = depth(upscale, 16)
+
 # Deband
-deb = core.f3kdb.Deband(upscale, range=16, y=56, grainy=30, grainc=30, output_depth=16, keep_tv_range=True)
-#deb = fag3kdb.Fag3kdb(upscale, radiusy=12, radiusc=8, grainy=60, grainc=60, mask_thr=2, mask_radius=3, keep_tv_range=True) 
+deb = core.f3kdb.Deband(upscale, range=16, y=56, grainy=0, grainc=0, output_depth=16, keep_tv_range=True)
+
 #deb.set_output()
 # Graining 
 grain = kgf.adaptive_grain(deb,0.20, luma_scaling=8)
