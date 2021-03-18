@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: vsutil
+Version: 0.5.0
+Summary: A collection of general-purpose Vapoursynth functions to be reused in modules and scripts.
+Home-page: https://encode.moe/vsutil
+Author: kageru
+Author-email: wizards@encode.moe
+License: MIT
+Platform: UNKNOWN
+Requires-Dist: vapoursynth
+
+UNKNOWN
+
+
