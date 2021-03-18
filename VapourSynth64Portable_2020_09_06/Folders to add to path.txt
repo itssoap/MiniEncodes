@@ -1,0 +1,7 @@
+These are relative locations, add the complete folder location to PATH
+
+VapourSynth64Portable_2020_09_06\VapourSynth64Portable\Scripts
+VapourSynth64Portable_2020_09_06\VapourSynth64Portable\
+VapourSynth64Portable_2020_09_06\VapourSynth64Portable\VapourSynth64\vapoursynth64\plugins
+VapourSynth64Portable_2020_09_06\VapourSynth64Portable\VapourSynth64\vapoursynth64\
+VapourSynth64Portable_2020_09_06\VapourSynth64Portable\VapourSynth64\
