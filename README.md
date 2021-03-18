@@ -7,7 +7,7 @@ I will try compiling all my scripts if possible. Feel free to use them.
 2. Unarchive it and add the bin folder within it to PATH.
 
 🐱‍👤 Setting up VapourSynth:
-1. Download Portable VapourSynth from here: [Drive](https://drive.google.com/file/d/1EpU8QdSJl5pgoH_Q25UsghZn7NfsuLx6/view?usp=sharing) 
+1. Download Portable VapourSynth from here: [Drive](https://drive.google.com/file/d/12wsbOYiR59iCFueip9OSGlpEHV3GVx_P/view?usp=sharing) 
 2. Add Python38 folder from Python38.7z to C:/Users/Administrator/AppData/Roaming/Python/
 (replace Administrator in step 2 with your username)
 3. Add following locations to your PATH: [Click here](https://github.com/Soaibkhan38/MiniEncodes/blob/main/Folders%20to%20add%20to%20path%20for%20VS.txt)
