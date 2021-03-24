@@ -1,7 +1,7 @@
 import vapoursynth as vs
 core = vs.get_core()
 
-core.max_cache_size=10000
+core.max_cache_size=14000
 #core.std.LoadPlugin(path="C:/Users/Administrator/AppData/Local/Programs/VapourSynth/plugins64/Bilateral.dll")
 import os
 import edi_rpow2
