@@ -26,9 +26,9 @@ echo %r1%
 echo %r2%
 echo %r3%
 
-vspipe --y4m osamake.vpy --arg key="%~1" - | ffmpeg -hide_banner -v quiet -stats -y -f yuv4mpegpipe -i - -s 854x480 -c:v libx265 -x265-params "bframes=8:psy-rd=1:psy-rdoq=1:aq-mode=3:qcomp=0.8" -crf 23 -pix_fmt yuv420p10le -preset slow -map 0 -movflags faststart "%r1%1.mkv"
-vspipe --y4m osamake.vpy --arg key="%~1" - | ffmpeg -hide_banner -v quiet -stats -y -f yuv4mpegpipe -i - -s 1280x720 -c:v libx265 -x265-params "bframes=8:psy-rd=1:psy-rdoq=1:aq-mode=3:qcomp=0.8" -crf 23 -pix_fmt yuv420p10le -preset slow -map 0 -movflags faststart "%r2%1.mkv"
-vspipe --y4m osamake.vpy --arg key="%~1" - | ffmpeg -hide_banner -v quiet -stats -y -f yuv4mpegpipe -i - -s 1920x1080 -c:v libx265 -x265-params "bframes=8:psy-rd=1:psy-rdoq=1:aq-mode=3:qcomp=0.8" -crf 23 -pix_fmt yuv420p10le -preset slow -map 0 -movflags faststart "%r3%1.mkv"
+vspipe --y4m osamake.vpy --arg key="%~1" - | ffmpeg -hide_banner -v quiet -stats -y -f yuv4mpegpipe -i - -s 854x480 -c:v libx265 -x265-params "bframes=8:psy-rd=1:psy-rdoq=1:aq-mode=3:qcomp=0.8" -crf 22 -pix_fmt yuv420p10le -preset slow -map 0 -movflags faststart "%r1%1.mkv"
+vspipe --y4m osamake.vpy --arg key="%~1" - | ffmpeg -hide_banner -v quiet -stats -y -f yuv4mpegpipe -i - -s 1280x720 -c:v libx265 -x265-params "bframes=8:psy-rd=1:psy-rdoq=1:aq-mode=3:qcomp=0.8" -crf 22 -pix_fmt yuv420p10le -preset slow -map 0 -movflags faststart "%r2%1.mkv"
+vspipe --y4m osamake.vpy --arg key="%~1" - | ffmpeg -hide_banner -v quiet -stats -y -f yuv4mpegpipe -i - -s 1920x1080 -c:v libx265 -x265-params "bframes=8:psy-rd=1:psy-rdoq=1:aq-mode=3:qcomp=0.8" -crf 22 -pix_fmt yuv420p10le -preset slow -map 0 -movflags faststart "%r3%1.mkv"
 
 ffmpeg -hide_banner -v quiet -stats -y -i "%r1%1.mkv" -i "%~1" -map 1 -map -1:v -map 0 -c:v copy -c:a aac -ac 2 -ab 128k -map_metadata:g -1 -metadata title="[AniDL] Osananajimi ga Zettai ni Makenai Love Comedy [WEB 480p 10bit][Soap]" -metadata:s:v title="" -metadata:s:a title="Japanese" "1%r1%.mkv"
 ffmpeg -hide_banner -v quiet -stats -y -i "%r2%1.mkv" -i "%~1" -map 1 -map -1:v -map 0 -c:v copy -c:a aac -ac 2 -ab 128k -map_metadata:g -1 -metadata title="[AniDL] Osananajimi ga Zettai ni Makenai Love Comedy [WEB 720p 10bit][Soap]" -metadata:s:v title="" -metadata:s:a title="Japanese" "1%r2%.mkv"
