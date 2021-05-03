@@ -1,4 +1,7 @@
 @Echo off
+
+timeout 3600
+
 For /f "delims=" %%A in ('
 Powershell -NoP -C "('%~1' -Split ' - ')[1]"
 ') Do Set "NewName=%%A%~x1"
@@ -26,13 +29,19 @@ echo %r1%
 echo %r2%
 echo %r3%
 
+del tempMars.mkv
+
 "C:/Program Files/MKVToolNix\mkvmerge.exe" --output "tempMars.mkv" --language 1:jpn --track-name 1:Japanese --default-track 1:yes --sub-charset 2:UTF-8 --language 2:eng --track-name ^"2:English subs^" --default-track 2:yes --language 0:und --default-track 0:yes "%~1" --split timestamps:7s --track-order 0:0,0:1,0:2
 
 del "*001.mkv"
 
-ren "*002.mkv" "tempMars.mkv"
+ren "tempMars-002.mkv" "tempMars.mkv"
 
-set "fi=tempMars.mkv"
+echo "Fixing Color range"
+
+ffmpeg -y -hide_banner -v quiet -stats -i "tempMars.mkv" -c copy -bsf:v h264_metadata=video_full_range_flag=1 -color_range 0 "atempMars.mkv"
+
+set "fi=atempMars.mkv"
 
 echo %fi%
 
