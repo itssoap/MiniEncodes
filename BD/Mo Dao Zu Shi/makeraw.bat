@@ -1,0 +1,3 @@
+@echo off
+for %%i in (*.mkv) do ffmpeg -hide_banner -v quiet -stats -i "%%i" -i "Subs/%%~ni_eng.ass" -map 0 -map -0:s -map 1 -attach "[07] Merienda - Bold.ttf" -attach "arial_1.ttf" -attach "ArtificeSSK.ttf" -attach "aucoinextbol.ttf" -attach "FZZJ-SHXSJW.TTF" -attach "GARA.TTF" -attach "PRISTINA.TTF" -metadata:s:t:0 mimetype=application/x-truetype-font -metadata:s:t:1 mimetype=application/x-font-ttf -metadata:s:t:2 mimetype=application/x-font-ttf -metadata:s:t:3 mimetype=application/x-truetype-font -metadata:s:t:4 mimetype=application/x-font-ttf -metadata:s:t:5 mimetype=application/x-font-ttf -metadata:s:t:6 mimetype=application/x-font-ttf -metadata:s:t:7 mimetype=application/x-font-ttf -c copy "raw/%%i"
+pause
