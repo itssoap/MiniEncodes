@@ -1,11 +1,11 @@
 import vapoursynth as vs
-core = vs.get_core()
+core = vs.get_core(threads=8)
 
-core.max_cache_size=10000
+core.max_cache_size=32000
 #core.std.LoadPlugin(path="C:/Users/Administrator/AppData/Local/Programs/VapourSynth/plugins64/Bilateral.dll")
 import os
 import edi_rpow2
-import havsfunc as haf
+import havsfunc as hvf
 import mvsfunc as mvf
 #import fag3kdb
 import lvsfunc as lvf
@@ -23,6 +23,7 @@ src = lvf.src(source)
 
 src = core.std.AssumeFPS(src, fpsnum=24000, fpsden=1001)
 src = depth(src, 16)
+src = src.resize.Spline36(range_in_s="full", range_s="limited")
 #src.set_output()
 
 height = 810
@@ -32,9 +33,11 @@ width = (height/9) * 16
 descale = lvf.scale.descale(clip=src, upscaler=None, height=height, kernel=lvf.kernels.Bicubic(b=1/3, c=1/3))
 descale = depth(descale, 16)
 
-denoise = mvf.BM3D(descale, sigma=[4, 1.2, 0.6])
+ref = hvf.SMDegrain(descale, tr=1, thSAD=300, plane=4)
+denoise = mvf.BM3D(descale, sigma=[4, 1.2, 0.6], ref=ref)
+
 # AA
-aa = taa.TAAmbk(denoise, aatype='Nnedi3')
+aa = taa.TAAmbk(descale, aatype='Nnedi3')
 
 
 # Upscaling back
