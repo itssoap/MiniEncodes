@@ -3,7 +3,7 @@
 I will try compiling all my scripts if possible. Feel free to use them.
 
 👀 Setting up FFmpeg:
-1. Download FFMpeg from here: [Drive](https://drive.google.com/file/d/1g5q5hDSZ7njNa_iGJZ6nmD8qr3STSER8/view?usp=sharing)
+1. Download FFMpeg from here: [MEGA](https://mega.nz/folder/B9kABBxZ#LAztIxaWNLGR4WxRtgdqqg)
 2. Unarchive it and add the bin folder within it to PATH.
 
 🐱‍👤 Setting up VapourSynth:
@@ -13,5 +13,5 @@ I will try compiling all my scripts if possible. Feel free to use them.
 3. Add following locations to your PATH: [Click here](https://github.com/Soaibkhan38/MiniEncodes/blob/main/Folders%20to%20add%20to%20path%20for%20VS.txt)
 
 🤔 Why download my VapourSynth Pack?
-1. Updated with newer repos (ex. lvsfunc)
+1. Updated with newer repos (ex. lvsfunc, vscompare, etc.)
 2. Made other mods but I don't remember
