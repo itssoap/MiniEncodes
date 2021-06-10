@@ -1,0 +1,1 @@
+vspipe --y4m yorunokuni.vpy --arg key="[SRW] Yoru no Kuni (Night World) - 02 [YouTube 1080p x264 Opus].mkv" - | ffmpeg -y -v quiet -stats -hide_banner -f yuv4mpegpipe -i - -c:v ffv1 -level 3 -threads 4 -map 0 -pix_fmt yuv420p10le "D:/out1.mkv"
