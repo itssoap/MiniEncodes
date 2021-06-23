@@ -1,0 +1,5 @@
+@echo off
+ffmpeg -v quiet -stats -hide_banner -n -i "outPuellaFiltered.mkv" -s 1920x1080 -c libx265 -x265-params "fps=24000/1001:bframes=16:deblock=-2,-2:no-sao=1:no-open-gop=1:no-strong-intra-smoothing=1:psy-rdoq=1.8:rdoq-level=1:rc-lookahead=72:keyint=360:min-keyint=23:subme=5:qcomp=0.7:aq-mode=3:aq-strength=0.9" -crf 21 -pix_fmt yuv420p10le -preset slow Puella1080p.mkv
+ffmpeg -v quiet -stats -hide_banner -y -i "outPuellaFiltered.mkv" -s 1280x720 -c libx265 -x265-params "fps=24000/1001:bframes=16:deblock=-2,-2:no-sao=1:no-open-gop=1:no-strong-intra-smoothing=1:psy-rdoq=1.8:rdoq-level=1:rc-lookahead=72:keyint=360:min-keyint=23:subme=5:qcomp=0.7:aq-mode=3:aq-strength=0.9" -crf 22 -pix_fmt yuv420p10le -preset slow Puella720p.mkv
+ffmpeg -v quiet -stats -hide_banner -y -i "outPuellaFiltered.mkv" -s 854x480 -c libx265 -x265-params "fps=24000/1001:bframes=16:deblock=-2,-2:no-sao=1:no-open-gop=1:no-strong-intra-smoothing=1:psy-rdoq=1.8:rdoq-level=1:rc-lookahead=72:keyint=360:min-keyint=23:subme=5:qcomp=0.7:aq-mode=3:aq-strength=0.9" -crf 22.5 -pix_fmt yuv420p10le -preset slow Puella480p.mkv
+pause
