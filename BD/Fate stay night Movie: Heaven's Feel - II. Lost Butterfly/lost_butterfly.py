@@ -25,8 +25,8 @@ raw = os.path.join(os.getcwd(), " ".join(sys.argv[1:]))
 masked = [(6873, 6988), (7014, 7122), (7152, 7266), (7298, 7403), (7431, 7533), (7560, 7653), (7680, 7792), (7818, 7906), (7933, 8011), (8034, 8101), (8122, 8227), (8251, 8349), (8372, 8501), (35048, 35305), (166713, 166800), (167471, 167628), (167793, 167971), (167999, 168144)]
 
 def compac(src, enc):
-    for _ in range(0, 6):
-        frame = random.randint(1, 168000)
+    for i in [13355, 79259, 85924, 90630, 97819]:
+        frame = i
         src, enc = vscompare.prep(src, enc, w=1920, h=1080, dith=True, yuv444=False)
         vscompare.save(frame, src=src, enc=enc)
 
@@ -39,12 +39,13 @@ def filter_chain(clip):
     #params
     height = 855
     width = (height/9)*16
-    b = 1
-    c = 0
+    b = 1/3
+    c = 1/3
 
     #descale and upscale
     descale = depth(lvf.scale.descale(clip=src, upscaler=None, height=height, kernel=lvf.kernels.Bicubic(b=b, c=c)), 16)
     dehalo = hvf.DeHalo_alpha(descale, darkstr=0)
+    #dehalo = mvf.BM3D(dehalo, sigma=[3.2, 0.8])
     upscale = insaneAA.rescale(dehalo, dx=src.width, dy=src.height)
     aa = insaneAA.insaneAA(src, external_aa=upscale)
     upscale = join([aa, plane(src, 1), plane(src, 2)])
@@ -63,7 +64,7 @@ def filter_chain(clip):
     deband = core.std.MaskedMerge(deband, upscale, line_mask)
 
     #Add grain and exclude few frames from output
-    grain = agmod(deband, strength=0.30, size=1, sharp=75, static=True)
+    grain = agmod(deband, strength=0.20, size=1, sharp=75, static=True)
     final = depth(lvf.rfs(grain, src, ranges=masked), 10)
 
     #generate comps 
