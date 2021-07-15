@@ -34,9 +34,8 @@ upscale = nnedi3_rpow2(aa).resize.Spline36(src.width, src.height)
 upscale = join([upscale, plane(src, 1), plane(src, 2)])
 upscale = depth(upscale, 16)
     
-#ref = hvf.SMDegrain(upscale, tr=1, thSAD=64, plane=4)
-#denoise = mvf.BM3D(upscale, sigma=[2.4, 0.8], ref=ref)
-denoise = upscale
+ref = hvf.SMDegrain(upscale, tr=1, thSAD=128, plane=4)
+denoise = mvf.BM3D(upscale, sigma=[2.8, 0.8], ref=ref)
 
 line_mask = kgf.retinex_edgemask(denoise).std.Binarize(9999).rgvs.RemoveGrain(3).std.Inflate()
 deband = core.f3kdb.Deband(denoise, range=18, y=64, cb=16, cr=16, grainy=0, grainc=0, output_depth=16, keep_tv_range=True)
