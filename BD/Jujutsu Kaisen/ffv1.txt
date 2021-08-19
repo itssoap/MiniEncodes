@@ -1,0 +1,1 @@
+vspipe -y {ep_no}.vpy - | ffmpeg -y -v quiet -stats -hide_banner -f yuv4mpegpipe -i - -c:v ffv1 -level 3 -threads 8 -map 0 -pix_fmt yuv420p10le "{ep_no}.mkv"
