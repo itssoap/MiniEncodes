@@ -1,0 +1,2 @@
+ffmpeg -y -f yuv4mpegpipe -i {ep_no}.mkv -s 1920x1080 -c:v libx265 -x265-params "fps=24000/1000:no-sao=1:bframes=16:psy-rd=1.5:psy-rdoq=4:aq-mode=3:ref=6:deblock=-1,-1" -crf 21 -pix_fmt yuv420p10le -preset slow out{ep_no}_1080p.mkv
+ffmpeg -y -f yuv4mpegpipe -i {ep_no}.mkv -s 1280x720 -c:v libx265 -x265-params "fps=24000/1000:no-sao=1:bframes=16:psy-rd=1.5:psy-rdoq=4:aq-mode=3:ref=6:deblock=-1,-1" -crf 22 -pix_fmt yuv420p10le -preset slow out{ep_no}_720p.mkv
