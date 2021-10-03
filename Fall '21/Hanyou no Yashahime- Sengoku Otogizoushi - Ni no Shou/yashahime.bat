@@ -39,17 +39,17 @@ ffmpeg -hide_banner -v quiet -stats -y -i "%r3%1.mkv" -i "%~1" -map 0 -map 1 -ma
 "C:/Program Files/MKVToolNix\mkvmerge.exe" --output "%r2%.mkv" --language 1:jpn --track-name 1:Japanese --default-track 1:yes --sub-charset 2:UTF-8 --language 2:eng --track-name ^"2:English subs^" --default-track 2:yes --language 0:und --default-track 0:yes ^"1%r2%.mkv^" --track-order 0:0,0:1,0:2
 "C:/Program Files/MKVToolNix\mkvmerge.exe" --output "%r3%.mkv" --language 1:jpn --track-name 1:Japanese --default-track 1:yes --sub-charset 2:UTF-8 --language 2:eng --track-name ^"2:English subs^" --default-track 2:yes --language 0:und --default-track 0:yes ^"1%r3%.mkv^" --track-order 0:0,0:1,0:2
 
-rclone copy "C:\Users\Administrator\Downloads\%r1%.mkv" "SoapEnc12:Public/[AniDL] Hanyou no Yashahime- Sengoku Otogizoushi - Ni no Shou [WEB 10bit 480p][Eng-Sub][Soap]"
-rclone copy "C:\Users\Administrator\Downloads\%r2%.mkv" "SoapEnc12:Public/[AniDL] Hanyou no Yashahime- Sengoku Otogizoushi - Ni no Shou [WEB 10bit 720p][Eng-Sub][Soap]"
-rclone copy "C:\Users\Administrator\Downloads\%r3%.mkv" "SoapEnc12:Public/[AniDL] Hanyou no Yashahime- Sengoku Otogizoushi - Ni no Shou [WEB 10bit 1080p][Eng-Sub][Soap]"
+rclone copy "C:\Users\Administrator\Downloads\%r1%.mkv" "SoapEnc12:Public/[AniDL] Hanyou no Yashahime- Sengoku Otogizoushi - Ni no Shou [WEB 480p 10bit][Eng-Sub][Soap]"
+rclone copy "C:\Users\Administrator\Downloads\%r2%.mkv" "SoapEnc12:Public/[AniDL] Hanyou no Yashahime- Sengoku Otogizoushi - Ni no Shou [WEB 720p 10bit][Eng-Sub][Soap]"
+rclone copy "C:\Users\Administrator\Downloads\%r3%.mkv" "SoapEnc12:Public/[AniDL] Hanyou no Yashahime- Sengoku Otogizoushi - Ni no Shou [WEB 1080p 10bit][Eng-Sub][Soap]"
 
-rclone copy "C:\Users\Administrator\Downloads\%r1%.mkv" "OneDrive ceo:Public/[AniDL] Hanyou no Yashahime- Sengoku Otogizoushi - Ni no Shou [WEB 10bit 480p][Eng-Sub][Soap]"
-rclone copy "C:\Users\Administrator\Downloads\%r2%.mkv" "OneDrive ceo:Public/[AniDL] Hanyou no Yashahime- Sengoku Otogizoushi - Ni no Shou [WEB 10bit 720p][Eng-Sub][Soap]"
-rclone copy "C:\Users\Administrator\Downloads\%r3%.mkv" "OneDrive ceo:Public/[AniDL] Hanyou no Yashahime- Sengoku Otogizoushi - Ni no Shou [WEB 10bit 1080p][Eng-Sub][Soap]"
+rclone copy "C:\Users\Administrator\Downloads\%r1%.mkv" "OneDrive ceo:Public/[AniDL] Hanyou no Yashahime- Sengoku Otogizoushi - Ni no Shou [WEB 480p 10bit][Eng-Sub][Soap]"
+rclone copy "C:\Users\Administrator\Downloads\%r2%.mkv" "OneDrive ceo:Public/[AniDL] Hanyou no Yashahime- Sengoku Otogizoushi - Ni no Shou [WEB 720p 10bit][Eng-Sub][Soap]"
+rclone copy "C:\Users\Administrator\Downloads\%r3%.mkv" "OneDrive ceo:Public/[AniDL] Hanyou no Yashahime- Sengoku Otogizoushi - Ni no Shou [WEB 1080p 10bit][Eng-Sub][Soap]"
 
-rclone copy "C:\Users\Administrator\Downloads\%r1%.mkv" "OneDrive ceo 2:Public/[AniDL] Hanyou no Yashahime- Sengoku Otogizoushi - Ni no Shou [WEB 10bit 480p][Eng-Sub][Soap]"
-rclone copy "C:\Users\Administrator\Downloads\%r2%.mkv" "OneDrive ceo 2:Public/[AniDL] Hanyou no Yashahime- Sengoku Otogizoushi - Ni no Shou [WEB 10bit 720p][Eng-Sub][Soap]"
-rclone copy "C:\Users\Administrator\Downloads\%r3%.mkv" "OneDrive ceo 2:Public/[AniDL] Hanyou no Yashahime- Sengoku Otogizoushi - Ni no Shou [WEB 10bit 1080p][Eng-Sub][Soap]"
+rclone copy "C:\Users\Administrator\Downloads\%r1%.mkv" "OneDrive ceo 2:Public/[AniDL] Hanyou no Yashahime- Sengoku Otogizoushi - Ni no Shou [WEB 480p 10bit][Eng-Sub][Soap]"
+rclone copy "C:\Users\Administrator\Downloads\%r2%.mkv" "OneDrive ceo 2:Public/[AniDL] Hanyou no Yashahime- Sengoku Otogizoushi - Ni no Shou [WEB 720p 10bit][Eng-Sub][Soap]"
+rclone copy "C:\Users\Administrator\Downloads\%r3%.mkv" "OneDrive ceo 2:Public/[AniDL] Hanyou no Yashahime- Sengoku Otogizoushi - Ni no Shou [WEB 1080p 10bit][Eng-Sub][Soap]"
 
 del "%r1%1.mkv"
 del "%r2%1.mkv"
