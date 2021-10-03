@@ -26,7 +26,7 @@ def compac(src, enc):
         src, enc = vscompare.prep(src, enc, w=1920, h=1080, dith=True, yuv444=False)
         vscompare.save(frame, src=src, enc=enc)
 
-key = "[SubsPlease] Hanyou no Yashahime - 25 (1080p) [D6759061].mkv"#key.decode()
+key = key.decode()
 source = os.path.join(os.getcwd(), key) 
 
 src = lvf.src(source, force_lsmas=True)
