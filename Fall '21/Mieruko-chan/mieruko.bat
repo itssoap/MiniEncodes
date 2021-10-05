@@ -8,7 +8,7 @@ Set nom=%NewName:~0,-27%
 echo %nom%
 echo %~1
 
-set "ff=[AniDL] Mieroku-chan - "
+set "ff=[AniDL] Mieruko-chan - "
 
 call set ffxx=%%ff%%%nom%%
 
