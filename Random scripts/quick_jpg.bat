@@ -1,0 +1,1 @@
+ffmpeg -hide_banner -v quiet -stats -i "%~1" -vf scale=1600:-1 -q:v 2 "%~dpn1.jpg"
